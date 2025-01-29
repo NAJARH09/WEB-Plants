@@ -1,0 +1,561 @@
+
+:root {
+    --color-primario: #6B9080;
+    --color-secundario: #A4C3B2;
+    --color-terciario: #CCE3DE;
+    --color-cuaternario: #EAF4F4;
+    --color-quinto: #F6FFF8;
+    --color-texto: #000000; /* Color para los textos principales */
+    --color-boton:#77BFA3;
+    --color-boton-hover: #DDE7C7;
+}
+/* Estilo general */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: var(--color-cuaternario);
+    color: var(--color-texto);
+}
+
+/* Main container */
+.main-container {
+    background-color: var(--color-quinto);
+    height: 100vh;
+    position: relative;
+}
+
+
+
+.main-container a:hover {
+    color: var(--color-secundario);
+}
+
+/* Content encima del main-container */
+/* Content encima del main-container */
+.content {
+    position: relative; /* Importante para posicionar el pseudo-elemento */
+    width: 53%; /* Ancho del contenedor */
+    height: 90%; /* Alto del contenedor */
+    z-index: 1;
+
+    /* Bordes redondeados */
+    border-radius: 0px 20px 20px 0px;
+
+    /* Centrado del contenido interno */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 125px;
+    overflow: hidden; /* Asegura que el pseudo-elemento no sobresalga */
+    background-image: url(img/passion-fruit-7550585_1280.jpg); /* Imagen de fondo */
+
+}
+
+.content::before {
+    content: ''; /* Crea el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    background-size: cover;
+    background-position: center;
+    background-color: rgb(56 116 5);
+    opacity: 20%; /* Opacidad del fondo */
+    z-index: 0; /* Mantiene el pseudo-elemento detrás del contenido */
+    border-radius: 0px 20px 20px 0px; /* Bordes redondeados */
+}
+
+/* Contenido dentro de .content */
+.content .im {
+    z-index: 1; /* Asegura que el texto esté por encima del fondo */
+    position: relative; /* Mantiene el texto en su lugar */
+}
+
+.content h1,
+.content p {
+    z-index: 1; /* Asegura que el texto esté por encima del fondo */
+    position: relative;
+    color:#000000;
+}
+.content p{
+    font-weight: 300;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    line-height: 1.3;
+    color: #ffffff;
+}
+.content h1{
+    font-size: 4.5rem;
+    font-weight: 900;
+
+    color: #deede6;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* Botón de explorar */
+.content .btn-explore {
+    padding: 10px 20px;
+    background-color: var(--color-boton);
+    color: var(--color-quinto);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    align-self: flex-start;
+}
+
+.content .btn-explore:hover {
+    background-color: var(--color-boton-hover);
+}
+
+/* Content 2 con video */
+.content2 {
+    width: 45%;
+    height: 85%;
+    position: absolute;
+    top: 7%;
+    left: 45%;
+    z-index: 2;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.content2 video {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Header */
+.header {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 80%;
+    height: 80px;
+   
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 3;
+    padding: 0 20px;
+   
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+.header .logo img {
+    height: 60px;
+}
+
+.header .nav-links a {
+    text-decoration: none;
+    color: #dde7c7;
+    margin: 0 15px;
+    font-size: 26px;
+    transition: color 0.3s ease;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    
+
+}
+
+.header .nav-links a:hover {
+    color: var(--color-secundario);
+}
+
+.header .btn-book {
+    padding: 15px 40px;
+    background-color: var(--color-boton);
+    color: var(--color-quinto);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+
+}
+
+.header .btn-book:hover {
+    background-color: var(--color-boton-hover);
+}
+
+
+/* Contenedor de la galería */
+.galery {
+    width: 80%; /* Ancho de la galería */
+    display: grid; /* Configuración de Grid */
+    grid-template-columns: 1fr 1fr; /* Dos columnas iguales */
+    grid-template-rows: auto; /* Altura automática de las filas */
+    gap: 20px; /* Espaciado entre elementos */
+    padding: 70px;
+    margin: 0 auto; /* Centrar la galería */
+    justify-content: center;
+    align-items: center;
+
+    /*contenedor*/
+    
+}
+.c1, .c2, .c3 {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+   
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave para el zoom */
+}
+/* Aumentar tamaño al pasar el cursor */
+.c1:hover, .c2:hover, .c3:hover {
+    transform: scale(0.9); /* Incrementa el tamaño al 110% */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Agrega una sombra al pasar el cursor */
+}
+
+/* Primera celda: imagen grande que ocupa todo a la izquierda */
+.c1 {
+    width: 100%; /* Ocupa el ancho completo de la celda */
+    height: 600px; /* Altura ajustable */
+    background-image: url(img/cedron.webp); /* Imagen de fondo */
+    background-size: cover; /* Imagen ajustada al tamaño del contenedor */
+    background-position: center; /* Centrar la imagen */
+    grid-column: 1 / 2; /* Ocupa la primera columna */
+    grid-row: 1 / 3; /* Ocupa dos filas */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Segunda celda: primera imagen pequeña a la derecha */
+.c2 {
+    width: 100%; /* Ocupa el ancho completo de la celda */
+    height: 290px; /* Altura ajustable */
+    background-image: url(img/chamomile-5360418_1280.jpg); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    grid-column: 2 / 3; /* Ocupa la segunda columna */
+    grid-row: 1 / 2; /* Ocupa la primera fila */
+    border-radius: 10px;
+}
+
+/* Tercera celda: segunda imagen pequeña a la derecha */
+.c3 {
+    width: 100%; /* Ocupa el ancho completo de la celda */
+    height: 290px; /* Altura ajustable */
+    background-image: url("img/peppermint-3481470_1280.jpg"); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    grid-column: 2 / 3; /* Ocupa la segunda columna */
+    grid-row: 2 / 3; /* Ocupa la segunda fila */
+    border-radius: 10px;
+
+       
+     
+     
+}
+.galery h1{
+    font-size: 3rem;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 600;
+    align-items: end;
+    margin: 0;
+    color: var(--color-boton-hover);
+    
+  
+    
+
+}
+.parte3 {
+    width: 80%;
+    display: grid;
+    grid-template-rows: auto 1fr; /* Una fila para el primer bloque y una fila dividida en dos para los otros */
+    grid-template-columns: 1fr 1fr; /* Dos columnas para la segunda fila */
+    gap: 20px;
+    padding: 70px;
+    margin: 0 auto;
+ }
+ .parte3 p{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 1.5;
+
+ }
+ .parte3 h1{
+   
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        font-size: 3.8rem;
+        font-weight: 600;
+        line-height: 0;
+        color:var(--color-primario)
+        
+     
+ }
+ /* Estilo del primer bloque (fila completa) */
+ .p1 {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Texto e imagen lado a lado */
+    align-items: center;
+    gap: 20px;
+    grid-column: 1 / 3; /* Ocupa las dos columnas de la grid */
+    background-color: var(--color-terciario);
+    border-radius: 20px;
+    justify-content: space-around;
+ }
+ 
+ .p1 .texto {
+    padding: 40px;
+ }
+ 
+ .p1 .imagen img {
+    width: 350px;
+    border-radius: 10px;
+    height: 350px;
+    margin: 20px auto;
+    display: flex;
+    justify-content: center; /* Centrar horizontalmente */
+    align-items: center; 
+
+  
+ }
+ 
+ /* Estilo del segundo y tercer bloque */
+ .p2, .p3 {
+    display: flex;
+    flex-direction: column; /* Imagen arriba, texto abajo */
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    background-color: var(--color-terciario);
+    border-radius: 10px;
+    
+ }
+ 
+ .p2 img, .p3 img , .p1 img{
+    width: 200px;
+    border-radius: 10px;
+    height: 200px;
+    margin: 20px auto;
+    
+ }
+ 
+ .p2 .texto, .p3 .texto {
+    padding: 10px;
+ }
+ 
+ .btn-explore {
+    padding: 10px 20px;
+    background-color: #77BFA3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+ }
+ 
+ .btn-explore:hover {
+    background-color: #4A8D6E;
+ }
+ 
+
+ /* Estilo general del footer */
+.footer {
+    background-color: #F6FFF8; /* Color principal */
+    color: var(--color-texto-claro); /* Texto claro */
+    padding: 40px 20px;
+    margin-top: 50px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Contenedor principal */
+  .footer-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Sección individual */
+  .footer-section {
+    text-align: left;
+  }
+  
+  .footer-section h3 {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--color-secundario);
+  }
+  
+  .footer-section p,
+  .footer-section ul {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-section ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-section ul li a {
+    color: var(--color-texto-claro);
+    text-decoration: none;
+  }
+  
+  .footer-section ul li a:hover {
+    color: var(--color-terciario);
+    text-decoration: underline;
+  }
+  
+  /* Iconos sociales */
+  .social-icons a img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-icons a img:hover {
+    transform: scale(1.2); /* Aumenta el tamaño al pasar el ratón */
+  }
+  
+  /* Footer inferior */
+  .footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8rem;
+    color: var(--color-texto-claro);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 10px;
+  }
+  
+
+
+
+  .PRODUCTO {
+    
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+.pro1 {
+    display: flex;
+    gap: 20px;
+    width: 80%;
+    margin: 0 auto;
+    flex-wrap: wrap; /* Para hacerlo responsivo */
+}
+
+.nosot5ros {
+    flex: 1;
+    
+}
+
+.nosot5ros h1 {
+    font-size: 2rem;
+    color: #2e7d32; /* Un tono verde para reflejar la naturaleza */
+    margin-bottom: 10px;
+    
+}
+
+.nosot5ros p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+
+.imag {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imag img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.lista {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    background-color: #f9f9f9; /* Fondo suave para resaltar los productos */
+}
+
+.uno {
+    width: calc(25% - 20px); /* 4 columnas en pantallas grandes */
+    background-color: #fff;
+    
+    border-radius: 10px;
+  
+    text-align: center;
+    padding: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.uno:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.uno img {
+    max-width: 70%;
+    height: auto;
+    border-radius: 500px;
+    margin-bottom: 10px;
+}
+
+.uno p {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.uno a {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #4caf50;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.uno a:hover {
+    background-color: #388e3c;
+}
+
+/* Estilo responsivo */
+@media (max-width: 1024px) {
+    .uno {
+        width: calc(33.33% - 20px); /* 3 columnas en pantallas medianas */
+    }
+}
+
+@media (max-width: 768px) {
+    .uno {
+        width: calc(50% - 20px); /* 2 columnas en pantallas pequeñas */
+    }
+}
+
+@media (max-width: 480px) {
+    .uno {
+        width: 100%; /* 1 columna en pantallas muy pequeñas */
+    }
+}
